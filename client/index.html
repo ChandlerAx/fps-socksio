@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <title>Shooter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <noscript>This browser, engine runtime is not supported.</noscript>
+
+    <div class="content">
+        <div class="home_footer">
+            <button class="footer_button home">HOME</button>
+            <button class="footer_button pass">SHOOTER PASS</button>
+            <button class="footer_button friends">FRIENDS</button>
+            <button class="footer_button shop">SHOP</button>
+            <button class="footer_button play">PLAY</button>
+        </div>
+
+
+
+        <div class="game_modes" style="display: none;">
+            <div class="game_modes_container">
+                <div class="server"></div>
+                <div class="game_m_navigation">
+                    <button class="game_m_selection"><i class="ico icoF fa-regular fa-circle-play"></i>FEATURED</button>
+                    <button class="game_m_selection"> <i class="ico fa-solid fa-bullseye"></i> MISSIONS</button>
+                    <button class="game_m_selection"><i class="ico icoC fa-solid fa-server"></i> CUSTOM</button>
+                </div>
+                <div class="featured_chard">
+                    <div class="ffa">
+                        <div class="ffa_i">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+                        <div class="card_ffa">
+                            <div class="card_title_ffa">
+                                FFA
+                            </div>
+                            <div class="card_eta">
+                                ~ 10 minutes
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="game" style="display: none;">
+        <div class="crosshair"></div>
+        <div class="APP_home_leaderboard_container">
+            <div class="APP_home_leaderboard_header">
+                <h1>Leaderboard</h1>
+            </div>
+            <ul class="APP_home_leaderboard_list">
+            </ul>
+        </div>
+        <div class="hp_bar">
+            <div class="hp_bar_in" style="width: 100%;"></div>
+            <div class="hp_lab">100/100</div>
+        </div>
+        <div class="hit">
+        </div>
+        <div class="client_settings">
+            <i class="c_icon_client fa-solid fa-sliders"></i>
+        </div>
+        <div class="settings_panel" style="display: none;">
+            <button class="settings_close">
+                Exit
+            </button>
+            <div class="settings_header">
+                <button class="settings_button">GAMEPLAY</button>
+                <button class="settings_button">CONTROLS</button>
+                <button class="settings_button">GRAPHICS</button>
+                <button class="settings_button">AUDIO</button>
+            </div>
+            <div class="settings_content">
+                <div class="game_play">
+                    <h1 class="g_ins">Game Instructions</h1>
+                    <div class="instructions">Shoot: Click or Hold to Keep Shooting</div>
+                    <div class="instructions">Movement: WASD or Arrow Keys</div>
+                    <div class="instructions">Look Around: Move Mouse</div>
+                    <div class="instructions">Jump: Press or Hold spacebar</div>
+                </div>
+                <div class="controls" style="display: none;">
+                    <div class="slider-container">
+                        <label class="sens" for="aim_sensitivity">Aim Sensitivity: 10%</label>
+                        <input type="range" id="aim_sensitivity" min="1" max="100" value="10">
+                    </div>
+                </div>
+                <div class="graphics_m" style="display: none;">
+                    <div class="slider-container">
+                        <label class="sens2" for="fps">Revolution: 1%</label>
+                        <input type="range" id="graphics" min="6" max="100" value="1" step="1">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="death_screen" style="display: none;">
+        <h1>You've been defeated!</h1>
+        <div class="stats">
+            <div>Total Kills:
+                <hr><span id="total_kills">0</span>
+            </div>
+            <div>Killstreak:
+                <hr><span id="killstreak">0</span>
+            </div>
+            <div>Time Alive:
+                <hr><span id="time_alive">0:00</span>
+            </div>
+        </div>
+        <button class="respawn_button">Respawn</button>
+    </div>
+
+    <div class="import">
+        <script type="importmap">
+            {
+              "imports": {
+                "three": "./build/three.module.js",
+                "three/addons/": "./jsm/"
+              }
+            }
+          </script>
+        <script type="module" src="./game.js"></script>
+        <script src="./ping.js"></script>
+    </div>
+
+    <audio id="index_music" autoplay style="display: none;">
+        <source src="./assets/music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+
+</body>
+
+</html>
