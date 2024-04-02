@@ -6,5 +6,5 @@ Simple Multiplayer First Person Shooter based on Node.js, Socket.io &amp; Three.
 - Source is 100% legal & self made Chandler, MIT licenced.
 
 # Installation
-npm i
-node .
+- npm i
+- node .
