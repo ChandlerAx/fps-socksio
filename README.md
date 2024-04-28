@@ -1,4 +1,5 @@
 # fps-socksio
+This source is not supported anymore and you can re-produce this by yourself
 
 Simple Multiplayer First Person Shooter based on Node.js, Socket.io & Three.js | Browser based
 
